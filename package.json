@@ -1,0 +1,29 @@
+{
+  "name": "@chapiter/favicons-webpack-plugin",
+  "version": "2.1.0",
+  "description": "Webpack favicons genterator, powered by t by RFG Api https://realfavicongenerator.net/api .",
+  "main": "src/main.js",
+  "scripts": {
+    "test": "webpack --config test/webpack.config.js",
+    "serve": "webpack serve --config test/webpack.config.js"
+  },
+  "keywords": [
+    "Webpack 5",
+    "Webpack favicons generator",
+    "Favicons generator",
+    "Webpack favicons"
+  ],
+  "author": "@chapiter <cc@chapiter.cc>",
+  "license": "MIT",
+  "dependencies": {
+    "html-webpack-plugin": "^5.5.0",
+    "rfg-api": "^0.5.2"
+  },
+  "devDependencies": {
+    "clean-webpack-plugin": "^4.0.0",
+    "copy-webpack-plugin": "^10.1.0",
+    "webpack": "^5.65.0",
+    "webpack-cli": "^4.9.1",
+    "webpack-dev-server": "^4.6.0"
+  }
+}

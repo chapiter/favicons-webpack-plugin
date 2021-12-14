@@ -1,0 +1,84 @@
+{
+    "masterPicture": "TODO: Path to your master picture",
+    "iconsPath": "/assets/favicons",
+    "design": {
+        "ios": {
+            "masterPicture": {
+                "type": "inline",
+                "content": "[TODO: Copy the base64-encoded content of the image here]"
+            },
+            "pictureAspect": "backgroundAndMargin",
+            "backgroundColor": "#ffffff",
+            "margin": "0%",
+            "assets": {
+                "ios6AndPriorIcons": false,
+                "ios7AndLaterIcons": false,
+                "precomposedIcons": false,
+                "declareOnlyDefaultIcon": true
+            },
+            "appName": "Work & Co"
+        },
+        "desktopBrowser": {
+            "design": "background",
+            "backgroundColor": "#ffffff",
+            "backgroundRadius": 0.1,
+            "imageScale": 1
+        },
+        "windows": {
+            "masterPicture": {
+                "type": "inline",
+                "content": "[TODO: Copy the base64-encoded content of the image here]"
+            },
+            "pictureAspect": "whiteSilhouette",
+            "backgroundColor": "#ff3333",
+            "onConflict": "override",
+            "assets": {
+                "windows80Ie10Tile": false,
+                "windows10Ie11EdgeTiles": {
+                    "small": false,
+                    "medium": true,
+                    "big": false,
+                    "rectangle": false
+                }
+            },
+            "appName": "Work & Co"
+        },
+        "androidChrome": {
+            "masterPicture": {
+                "type": "inline",
+                "content": "[TODO: Copy the base64-encoded content of the image here]"
+            },
+            "pictureAspect": "backgroundAndMargin",
+            "margin": "0%",
+            "backgroundColor": "#ffffff",
+            "themeColor": "#ffffff",
+            "manifest": {
+                "name": "Work & Co",
+                "startUrl": "https://chapiter.cc",
+                "display": "standalone",
+                "orientation": "notSet",
+                "onConflict": "override",
+                "declared": true
+            },
+            "assets": {
+                "legacyIcon": false,
+                "lowResolutionIcons": false
+            }
+        },
+        "safariPinnedTab": {
+            "masterPicture": {
+                "type": "inline",
+                "content": "[TODO: Copy the base64-encoded content of the image here]"
+            },
+            "pictureAspect": "silhouette",
+            "themeColor": "#ff3333"
+        }
+    },
+    "settings": {
+        "scalingAlgorithm": "Mitchell",
+        "errorOnImageTooSmall": false,
+        "readmeFile": true,
+        "htmlCodeFile": true,
+        "usePathAsIs": false
+    }
+}
