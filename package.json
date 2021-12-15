@@ -1,6 +1,6 @@
 {
   "name": "@chapiter/favicons-webpack-plugin",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "Webpack favicons genterator, powered by t by RFG Api https://realfavicongenerator.net/api .",
   "main": "src/main.js",
   "scripts": {
@@ -16,7 +16,9 @@
   "author": "@chapiter <cc@chapiter.cc>",
   "license": "MIT",
   "dependencies": {
-    "html-webpack-plugin": "^5.5.0",
     "rfg-api": "^0.5.2"
+  },
+  "devDependencies": {
+    "html-webpack-plugin": "^5.5.0"
   }
 }
