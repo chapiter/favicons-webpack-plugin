@@ -16,6 +16,20 @@ class FaviconsWebpackPlugin {
         this.options = options;
     }
 
+    // Get faviconJsonPath - RealPath
+    getFullfaviconJsonPath(template, context) {
+        if (template === 'auto') {
+            template = path.resolve(context, 'src/index.ejs');
+            if (!fs.existsSync(template)) {
+                template = path.join(__dirname, 'default_index.ejs');
+            }
+        }
+        // Resolve faviconJson path
+        return template.replace(
+            /([!])([^/\\][^!?]+|[^/\\!?])($|\?[^!?\n]+$)/,
+            (match, prefix, filepath, postfix) => prefix + path.resolve(filepath) + postfix);
+    }
+
     // Generate and write favicon images
     generateFavicons(cb) {
         rfg.generateFavicon(this.request, this.outputPath, cb);
@@ -27,8 +41,10 @@ class FaviconsWebpackPlugin {
         * Hook into https://webpack.js.org/api/compiler-hooks#thiscompilation
         * for the initial setup
         */
+
         compiler.hooks.thisCompilation.tap(pluginName, compilation => {
-            const jsonPath = path.join(compiler.context, this.options.faviconJson);
+
+            const jsonPath = this.getFullfaviconJsonPath(this.options.faviconJson, compiler.context);
             const json = require(jsonPath);
 
             const opts = {
@@ -57,9 +73,17 @@ class FaviconsWebpackPlugin {
                         );
                         cb(null, data);
                     });
-                }
-                );
+                });
             }
+
+            // Gernratefavicons for webpack `dist` or `build` folder
+            compiler.hooks.afterEmit.tapAsync(pluginName, (compilation, cb) => {
+                this.generateFavicons((err) => {
+                    if (err) return cb(err);
+                    cb(null, compilation);
+                });
+            });
+
         });
 
         /*
@@ -67,13 +91,15 @@ class FaviconsWebpackPlugin {
         * emits assets https://webpack.js.org/api/compiler-hooks/#emit
         */
         if (this.options.inject !== true) {
-            compiler.hooks.emit.tapAsync(pluginName, (compilation, cb) => {
-                this.generateFavicons((err, res) => {
+            compiler.hooks.afterEmit.tapAsync(pluginName, (compilation, cb) => {
+                this.generateFavicons((err) => {
                     if (err) return cb(err);
                     cb(null, compilation);
                 });
             });
         }
+
+
     }
 }
 
