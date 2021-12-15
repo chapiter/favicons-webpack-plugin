@@ -1,1 +1,0 @@
-document.body.appendChild(function(){const n=document.createElement("div");return n.innerHTML="✨ Favicons Webpack Plugin test!  💻 ",n}());
